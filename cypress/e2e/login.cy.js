@@ -26,26 +26,26 @@ describe('Login Functionality Tests with Screenshots', () => {
 
     cy.get('button[type="submit"]').click();
     cy.contains('Your password is invalid!').should('be.visible');
-    cy.screenshot('05-error-invalid-password'); // 📸 Error message
+    cy.screenshot('05-error-invalid-password'); //  Error 
   });
 
   it('TC003 - Login with empty email', () => {
     cy.get('#password').type('SuperSecretPassword!');
-    cy.screenshot('06-empty-username'); // 📸 Before login
+    cy.screenshot('06-empty-username'); // Before login
 
     cy.get('button[type="submit"]').click();
     cy.contains('Your username is invalid!').should('be.visible');
-    cy.screenshot('07-error-empty-username'); // 📸 Error message
+    cy.screenshot('07-error-empty-username'); // error message
   });
 
   it('TC004 - Login with invalid email format', () => {
     cy.get('#username').type('user@com');
     cy.get('#password').type('SuperSecretPassword!');
-    cy.screenshot('08-invalid-email-format'); // 📸 Before login
+    cy.screenshot('08-invalid-email-format'); //  Before login
 
     cy.get('button[type="submit"]').click();
     cy.contains('Your username is invalid!').should('be.visible');
-    cy.screenshot('09-error-invalid-email-format'); // 📸 Error message
+    cy.screenshot('09-error-invalid-email-format'); //  Error message
   });
 
 //   it('TC005 - Forgot Password flow (simulated)', () => {
