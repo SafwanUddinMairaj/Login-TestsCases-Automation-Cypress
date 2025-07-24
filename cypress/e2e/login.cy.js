@@ -3,24 +3,26 @@ describe('Login Functionality Tests with Screenshots', () => {
 
   beforeEach(() => {
     cy.visit(baseUrl);
-    cy.screenshot('01-visit-login-page'); // 📸 Initial page load
+
+// 📸 Initial page load
+    cy.screenshot('01-visit-login-page'); 
   });
 
   it('TC001 - Valid login with correct credentials', () => {
     cy.get('#username').type('practice');
     cy.get('#password').type('SuperSecretPassword!');
-    cy.screenshot('02-enter-valid-credentials'); // 📸 Inputs filled
+    cy.screenshot('02-enter-valid-credentials'); // Input credentials
 
     cy.get('button[type="submit"]').click();
     cy.url().should('include', '/secure');
     cy.contains('You logged into a secure area!').should('be.visible');
-    cy.screenshot('03-valid-login-success'); // 📸 Success page
+    cy.screenshot('03-valid-login-success'); //  success page
   });
 
   it('TC002 - Login with invalid password', () => {
     cy.get('#username').type('practice');
     cy.get('#password').type('WrongPassword');
-    cy.screenshot('04-invalid-password'); // 📸 Inputs before submit
+    cy.screenshot('04-invalid-password'); // Inputs before submission
 
     cy.get('button[type="submit"]').click();
     cy.contains('Your password is invalid!').should('be.visible');
@@ -48,6 +50,6 @@ describe('Login Functionality Tests with Screenshots', () => {
 
 //   it('TC005 - Forgot Password flow (simulated)', () => {
 //     cy.contains('Forgot Password').click();
-//     cy.screenshot('10-forgot-password-clicked'); // 📸 Placeholder — if flow exists
+//     cy.screenshot('10-forgot-password-clicked'); 
 //   });
 });
